@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+    <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!--Meu CSS -->
+    <link href="css/tcssAction.css" rel="stylesheet">
+
+</head>
+    
+    <script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+
+<body>
+
+    <div class="fluig-style-guide">
+        <form name="form" role="form">
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item tondini-title">
+                <a class="nav-link active nav-close" data-toggle="tab" href="#cadastro_requisito_nav">T-Class Audit</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+
+                <!-- Cadastro de Cliente-->
+                <div id="cadastro_cliente_nav" class="container tab-pane active" aria-selected="true">
+
+                    <!--Cadastro Principal-->
+                    <div class="row">
+
+                        <div class="jumbotron jumbotron-fluid">
+                            <div class="container">
+                            <h1 class="display-4 title">T-Class Action</h1>
+                            <p class="lead subtitle">Ações, causa, descrições da ação e de eficácia</p>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-info alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                            <strong>Atenção!</strong> Para dar andamento ao processo preencha corretamente todos os campos.
+                        </div>
+
+                        <!-- 1° Painel -->
+                        <div class="panel panel-info panel-div1">
+                            <div class="panel-heading panel-div2">
+                                <h3 class="panel-title">Filtro</h3>
+                            </div>
+
+                            <div class="panel-body">
+
+                                <div id="div_tb">    
+                                    <table tablename="tb_filtro" id="tb_filtro" class="table table-striped table-hover" noaddbutton="true" nodeletebutton="true">
+                                        <thead>
+                                        <tr>
+                                            <th>Origem</th>
+                                            <th>Data</th>
+                                            <th>Status</th>
+                                            <th>Responsável pela emissão</th>
+                                            <th>Responsável pela ação</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td><input id="tb_requisito" name="tb_requisito" class="invisible-input" readonly></td>
+                                            <td><input id="tb_desc" name="tb_desc" class="invisible-input" readonly></td>
+                                            <td><input id="tb_status" name="tb_status" class="form-control aberto-input" readonly></td>
+                                            <td><input id="tb_resEm" name="tb_resEm" class="invisible-input" readonly></td>
+                                            <td><input id="tb_resAc" name="tb_resAc" class="invisible-input" readonly></td>
+                                            
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <!-- 2° Painel -->
+                        <div class="panel panel-info panel-div1">
+                            <div class="panel-heading panel-div2">
+                                <h3 class="panel-title">T-Class Action</h3>
+                            </div>
+
+                            <div class="panel-body">
+
+                                <!-- 1° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="origem">Origem da Ação</label>
+                                    <input name="origem" type="text" class="form-control" id="origem">
+                                </div>
+
+                                <!-- 2° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="classif">Classificação</label>
+                                    <input name="classif" type="text" class="form-control" id="classif">
+                                </div>
+
+                                <!-- 3° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="critAct">Critério da Ação</label>
+                                    <input name="critAct" type="text" class="form-control" id="critAct">
+                                </div>
+
+                                <!-- 4° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="dateAbert">Data da Abertura</label>
+                                    <input name="dateAbert" type="date" class="form-control" id="dateAbert">
+                                </div>
+
+                                <!-- 5° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="nameAplic">Nome Aplicável</label>
+                                    <input name="nameAplic" type="text" class="form-control" id="nameAplic">
+                                </div>
+
+                                <!-- 6° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="req">Requisito</label>
+                                    <input name="req" type="text" class="form-control" id="req">
+                                </div>
+
+                                <!-- 7° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="descReq">Descrição do Requisito</label>
+                                    <input name="descReq" type="text" class="form-control" id="descReq">
+                                </div>
+
+                                <!-- 8° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="gestorAc">Gestor da Ação</label>
+                                    <input name="gestorAc" type="text" class="form-control" id="gestorAc">
+                                </div>
+
+                                <!-- 9° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="status">Status</label>
+                                    <input name="status" type="text" class="form-control" id="status">
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- 3° Painel -->
+                        <div class="panel panel-info panel-div1">
+                            <div class="panel-heading panel-div2">
+                                <h3 class="panel-title">Cadastro de Ação de Contenção</h3>
+                            </div>
+
+                            <div class="panel-body">
+ 
+                                <!-- 1° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="actCont">Ação de Contenção/Imediata</label>
+                                    <input name="actCont" type="text" class="form-control" id="actCont">
+                                </div>
+
+                                <!-- 2° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="resp">Responsável</label>
+                                    <input name="resp" type="text" class="form-control" id="resp">
+                                </div>
+
+                                <!-- 3° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="prazo">Prazo</label>
+                                    <input name="prazo" type="date" class="form-control" id="prazo">
+                                </div>
+
+                                <!-- 4° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="dateEncerr">Data de Encerramento</label>
+                                    <input name="dateEncerr" type="date" class="form-control" id="dateEncerr">
+                                </div>
+
+                                <!-- 5° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="status1">Status</label>
+                                    <input name="status1" type="text" class="form-control" id="status1">
+                                </div>
+
+                                <button type="button" class="btn btn-info btn-lg btn-block">Adicionar</button>
+                                <div class="clearfix"></div>
+                                <br>
+                                <br>
+
+                                <div id="div_tb">    
+                                    <table tablename="tb_contecao" id="tb_contecao" class="table table-striped table-hover" noaddbutton="true" nodeletebutton="true">
+                                        <thead>
+                                        <tr>
+                                            <th>Nº Ação</th>
+                                            <th>Ação</th>
+                                            <th>Prazo</th>
+                                            <th>Responsável</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td><input id="tb_nAct" name="tb_nAct" class="invisible-input" readonly></td>
+                                            <td><input id="tb_act" name="tb_act" class="invisible-input" readonly></td>
+                                            <td><input id="tb_prazo" name="tb_prazo" class="invisible-input" readonly></td>
+                                            <td><input id="tb_resp" name="tb_resp" class="invisible-input" readonly></td>
+                                            <td><input id="tb_status1" name="tb_status1" class="invisible-input" readonly></td>
+                                            
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <!-- 4° Painel -->
+                        <div class="panel panel-info panel-div1">
+                            <div class="panel-heading panel-div2">
+                                <h3 class="panel-title">Cadastro de Causa</h3>
+                            </div>
+
+                            <div class="panel-body">
+ 
+                                <!-- 1° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="descCausa">Descrição da Causa</label>
+                                    <input name="descCausa" type="text" class="form-control" id="descCausa">
+                                </div>
+
+                                <!-- 2° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="resp2">Responsável</label>
+                                    <input name="resp2" type="text" class="form-control" id="resp2">
+                                </div>
+
+                                <!-- 3° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="prazo2">Prazo</label>
+                                    <input name="prazo2" type="date" class="form-control" id="prazo2">
+                                </div>
+
+                                <!-- 4° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="dateEncerr2">Data de Encerramento</label>
+                                    <input name="dateEncerr2" type="date" class="form-control" id="dateEncerr2">
+                                </div>
+
+                                <!-- 5° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="status2">Status</label>
+                                    <input name="status2" type="text" class="form-control" id="status2">
+                                </div>
+
+                                <button type="button" class="btn btn-info btn-lg btn-block">Adicionar</button>
+                                <div class="clearfix"></div>
+                                <br>
+                                <br>
+
+                                <div id="div_tb">    
+                                    <table tablename="tb_causa" id="tb_causa" class="table table-striped table-hover" noaddbutton="true" nodeletebutton="true">
+                                        <thead>
+                                        <tr>
+                                            <th>Nº Causa</th>
+                                            <th>Causa</th>
+                                            <th>Responsável</th>
+                                            <th>Data da Avaliação</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td><input id="tb_nCausa" name="tb_nCausa" class="invisible-input" readonly></td>
+                                            <td><input id="tb_causa" name="tb_causa" class="invisible-input" readonly></td>
+                                            <td><input id="tb_resp" name="tb_resp" class="invisible-input" readonly></td>
+                                            <td><input id="tb_dateAval" name="tb_dateAval" class="invisible-input" readonly></td>
+                                            
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <!-- 4° Painel -->
+                        <div class="panel panel-info panel-div1">
+                            <div class="panel-heading panel-div2">
+                                <h3 class="panel-title">Cadastro de Ações Corretivas e ou Melhoria</h3>
+                            </div>
+
+                            <div class="panel-body">
+ 
+                                <!-- 1° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="descAct">Descrição da Ação Corretiva e ou Melhoria</label>
+                                    <input name="descAct" type="text" class="form-control" id="descAct">
+                                </div>
+
+                                 <!-- 2° Input -->
+                                 <div class="form-group col-md-12">
+                                    <label for="classifCM">Classificação</label>
+                                    <input name="classifCM" type="text" class="form-control" id="classifCM">
+                                </div>
+
+                                <!-- 2° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="resp3">Responsável</label>
+                                    <input name="resp3" type="text" class="form-control" id="resp3">
+                                </div>
+
+                                <!-- 3° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="prazo3">Prazo</label>
+                                    <input name="prazo3" type="date" class="form-control" id="prazo3">
+                                </div>
+
+                                <!-- 4° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="dateEncerr3">Data de Encerramento</label>
+                                    <input name="dateEncerr3" type="date" class="form-control" id="dateEncerr3">
+                                </div>
+
+                                <!-- 5° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="status3">Status</label>
+                                    <input name="status3" type="text" class="form-control" id="status3">
+                                </div>
+
+                                <button type="button" class="btn btn-info btn-lg btn-block">Adicionar</button>
+                                <div class="clearfix"></div>
+                                <br>
+                                <br>
+
+                                <div id="div_tb">    
+                                    <table tablename="tb_corretiva" id="tb_corretiva" class="table table-striped table-hover" noaddbutton="true" nodeletebutton="true">
+                                        <thead>
+                                        <tr>
+                                            <th>Nº Ação</th>
+                                            <th>Descrição da Ação</th>
+                                            <th>Prazo</th>
+                                            <th>Responsável</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td><input id="tb_nAct3" name="tb_nAct" class="invisible-input" readonly></td>
+                                            <td><input id="tb_descAct" name="tb_act" class="invisible-input" readonly></td>
+                                            <td><input id="tb_prazo3" name="tb_prazo" class="invisible-input" readonly></td>
+                                            <td><input id="tb_resp3" name="tb_resp" class="invisible-input" readonly></td>
+                                            <td><input id="tb_status3" name="tb_status2" class="invisible-input" readonly></td>
+                                            
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                         <!-- 5° Painel -->
+                         <div class="panel panel-info panel-div1">
+                            <div class="panel-heading panel-div2">
+                                <h3 class="panel-title">Cadastro da Avaliação de Eficácia</h3>
+                            </div>
+
+                            <div class="panel-body">
+ 
+                                <!-- 1° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="descEfic">Descrição da Avaliação de Eficácia da Ação</label>
+                                    <input name="descEfic" type="text" class="form-control" id="descEfic">
+                                </div>
+
+                                <!-- 2° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="resp4">Responsável</label>
+                                    <input name="resp4" type="text" class="form-control" id="resp3">
+                                </div>
+
+                                <!-- 3° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="prazo4">Prazo</label>
+                                    <input name="prazo4" type="date" class="form-control" id="prazo4">
+                                </div>
+
+                                <!-- 4° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="dateEncerr4">Data de Encerramento</label>
+                                    <input name="dateEncerr4" type="date" class="form-control" id="dateEncerr4">
+                                </div>
+
+                                <!-- 5° Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="status4">Status</label>
+                                    <input name="status4" type="text" class="form-control" id="status4">
+                                </div>
+                                
+                                <button type="button" class="btn btn-info btn-lg btn-block">Adicionar</button>
+                                <div class="clearfix"></div>
+                                <br>
+                                <br>
+
+                                <div id="div_tb">    
+                                    <table tablename="tb_eficacia" id="tb_eficacia" class="table table-striped table-hover" noaddbutton="true" nodeletebutton="true">
+                                        <thead>
+                                        <tr>
+                                            <th>Nº Ação</th>
+                                            <th>Descrição da Ação</th>
+                                            <th>Prazo</th>
+                                            <th>Responsável</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td><input id="tb_nAct4" name="tb_nAct4" class="invisible-input" readonly></td>
+                                            <td><input id="tb_descEfic" name="tb_descEfic" class="invisible-input" readonly></td>
+                                            <td><input id="tb_prazo4" name="tb_prazo4" class="invisible-input" readonly></td>
+                                            <td><input id="tb_resp4" name="tb_resp4" class="invisible-input" readonly></td>
+                                            <td><input id="tb_status4" name="tb_status4" class="invisible-input" readonly></td>
+                                            
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                </div>
+
+            </div>
+
+            
+            <!--MyScript-->
+            <script type="text/javascript" src="js/tcssAction.js"></script>
+
+        </form>
+    </div>    
+
+</body>
+
+</html>
